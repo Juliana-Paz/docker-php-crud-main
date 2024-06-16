@@ -1,0 +1,14 @@
+version: "3"
+services:
+  php:
+    build: './php/'
+    volumes:
+      - ./public:/var/www/html/
+  apache:
+    build: './apache/'
+    depends_on:
+      - php
+    ports:
+      - "80:80"
+    volumes:
+      - ./public:/var/www/html/
